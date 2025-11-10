@@ -56,32 +56,27 @@ function findFlavorObject() {
 }
 
 // Dev Shop code
-// 1) Get the elements we will update
-// get the cupcake name and image elements
+// 1) Get the elements we will update – the cupcake name and image elements
 const nameEl = document.getElementById("featured-cupcake-name");
 const imgEl = document.getElementById("featured-cupcake-img");
 
 // find correct flavor and update the DOM elements
 function revealFlavor() {
-  // get today's flavor object
   let flavorObject = findFlavorObject();
-
-  // update the image source
   imgEl.src = flavorObject.img;
-
-  // update the cupcake name text
   nameEl.innerText = flavorObject.name;
 }
+
 //PART 2 INSTRUCTOR DEMO (Show Random Flavor)
 
 // 2) Track which flavor is currently selected
-let i = 0; // index in featuredFlavors
+let i = 0;
 
 // 3) Render the current flavor to the page
 function show() {
-  const f = featuredFlavors[i]; // read item at position i
-  imgEl.src = f.img; // update image
-  nameEl.textContent = f.name; // update caption text
+  const f = featuredFlavors[i];
+  imgEl.src = f.img;
+  nameEl.textContent = f.name;
 }
 
 // 4) Draw the first flavor when the script runs
@@ -91,10 +86,8 @@ show();
 document
   .getElementById("random-flavor-btn")
   .addEventListener("click", function () {
-    // 6) Pick a random index from 0 up to (but not including) featuredFlavors.length
     i = Math.floor(Math.random() * featuredFlavors.length);
 
-    // Update the page and log for visibility
     show();
     console.log("Random flavor:", featuredFlavors[i].name);
   });
