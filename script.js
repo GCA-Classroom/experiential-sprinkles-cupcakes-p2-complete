@@ -56,27 +56,45 @@ function findFlavorObject() {
 }
 
 // Dev Shop code
+// 1) Get the elements we will update
+// get the cupcake name and image elements
+const nameEl = document.getElementById("featured-cupcake-name");
+const imgEl = document.getElementById("featured-cupcake-img");
 
-// find correct flavor, select DOM element, change img src
+// find correct flavor and update the DOM elements
 function revealFlavor() {
+  // get today's flavor object
   let flavorObject = findFlavorObject();
-  let flavorImage = document.querySelector("#featured-cupcake-img");
-  flavorImage.src = flavorObject.img;
-  let flavorName = document.querySelector("#featured-cupcake-name");
-  flavorName.innerText = flavorObject.name;
+
+  // update the image source
+  imgEl.src = flavorObject.img;
+
+  // update the cupcake name text
+  nameEl.innerText = flavorObject.name;
 }
-//PART 2 INSTRUCTOR DEMO
+//PART 2 INSTRUCTOR DEMO (Show Random Flavor)
 
-// 1. Select the Next Flavor button from the DOM
+// 2) Track which flavor is currently selected
+let i = 0; // index in featuredFlavors
 
-// 2. Attach an event listener to the button
+// 3) Render the current flavor to the page
+function show() {
+  const f = featuredFlavors[i]; // read item at position i
+  imgEl.src = f.img; // update image
+  nameEl.textContent = f.name; // update caption text
+}
 
-// 3. Find the current displayed flavor name
+// 4) Draw the first flavor when the script runs
+show();
 
-// 4. Find the index of the current flavor in the array
+// 5) Wire the button to show a random flavor on each click
+document
+  .getElementById("random-flavor-btn")
+  .addEventListener("click", function () {
+    // 6) Pick a random index from 0 up to (but not including) featuredFlavors.length
+    i = Math.floor(Math.random() * featuredFlavors.length);
 
-// 5. Calculate the next flavor index (wrap around if at end)
-
-// 6. Update the cupcake display with the next flavor
-
-// Console log at each step to show how event-driven programming works
+    // Update the page and log for visibility
+    show();
+    console.log("Random flavor:", featuredFlavors[i].name);
+  });
