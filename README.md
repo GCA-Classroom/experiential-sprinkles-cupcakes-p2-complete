@@ -1,20 +1,26 @@
-# 🧁 Experiential Sprinkles Cupcakes: Part 1
+# 🧁 Experiential Sprinkles Cupcakes: Part 2
 
-Build the **Flavor of the Day** feature using basic JavaScript and the DOM.
+Make your cupcake feature interactive by adding a **Next Flavor** button and simple JavaScript to change what’s shown on the page.
 
 ## Quick Start
+
 - Fork this repo and open in Codespaces (or clone and open with Live Server).
 - Open `index.html` and `script.js`.
 
 ## What to Do
-- In `script.js`, use the provided cupcake array + helper to choose today’s cupcake.
-- Update the DOM:
-  - set `src` on `#featured-cupcake-img`
-  - set text of `#featured-cupcake-name`
-- Test in the console with `console.log(revealFlavor())`, then reload to verify the image/name update.
 
-## Optional Stretch
-Support countries where the week starts on Saturday (e.g., Bahrain) by adjusting the selection logic.
+1. Add a **Next Flavor** button in `index.html` with id `next-flavor-btn`.
+2. In `script.js`, find the cupcake name and image elements using `getElementById`.
+3. Make a number variable (`let i = 0;`) to remember which flavor is showing.
+4. Write a `show()` function that changes the image and name on the page.
+5. Call `show()` once so the first flavor appears.
+6. When the button is clicked, change `i` to the next flavor number, go back to the first if needed, and call `show()` again.
+7. Use `console.log()` to check which flavor is showing.
+
+## LevelUp Challenge (Optional)
+
+Add a country dropdown so users can choose where they’re from, and update the featured flavor based on each country’s week start day (for example, Saturday for Bahrain).
 
 ## You’ll Practice
+
 Arrays & objects → functions/conditionals → DOM selection & updates → console-based debugging.
