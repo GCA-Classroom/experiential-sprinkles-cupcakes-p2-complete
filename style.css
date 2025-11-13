@@ -1319,3 +1319,34 @@ img#featured-cupcake-img {
   cursor: pointer;
   border: 18px solid #f6a2b6;
 }
+
+/* Country Selector Dropdown Styling */
+.country-dropdown {
+  padding: 10px 15px;
+  border: 2px solid #48250f;
+  border-radius: 4px;
+  background-color: #ffffff;
+  color: #48250f;
+  font-family: var(--font-stack-body);
+  font-size: 16px;
+  margin-top: 10px;
+  min-width: 250px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.country-dropdown:hover {
+  border-color: var(--color-primary);
+}
+
+.country-dropdown:focus {
+  outline: 2px solid var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+@media only screen and (max-width: 767px) {
+  .country-dropdown {
+    min-width: 200px;
+    font-size: 14px;
+  }
+}

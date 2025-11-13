@@ -44,6 +44,30 @@ let featuredFlavors = [
   },
 ];
 
+// country flavors mapping - each country has a signature cupcake
+let countryFlavors = {
+  usa: {
+    name: "Banana Split",
+    img: "assets/banana-split.jpg",
+    color: "#B22234", // red from US flag
+  },
+  france: {
+    name: "Cannoli",
+    img: "assets/cannoli.jpg",
+    color: "#0055A4", // blue from French flag
+  },
+  japan: {
+    name: "Matcha",
+    img: "assets/matcha.jpg",
+    color: "#BC002D", // red from Japanese flag
+  },
+  italy: {
+    name: "Strawberry Shortcake",
+    img: "assets/strawberry.jpg",
+    color: "#009246", // green from Italian flag
+  },
+};
+
 // find flavor object based on weekday using a loop
 function findFlavorObject() {
   let todayCode = new Date().getDay();
@@ -90,4 +114,36 @@ document
 
     show();
     console.log("Random flavor:", featuredFlavors[i].name);
+  });
+
+// Wire the country selector to show country-specific flavor
+document
+  .getElementById("country-selector")
+  .addEventListener("change", function () {
+    // Get the selected country value
+    let selectedCountry = this.value;
+
+    // Check if a valid country was selected
+    if (selectedCountry && countryFlavors[selectedCountry]) {
+      // Get the flavor for this country
+      let countryFlavor = countryFlavors[selectedCountry];
+
+      // Update the display with country flavor
+      imgEl.src = countryFlavor.img;
+      nameEl.textContent = countryFlavor.name;
+
+      // Add themed color to the name (bonus feature!)
+      nameEl.style.color = countryFlavor.color;
+
+      console.log(
+        "Country selected:",
+        selectedCountry,
+        "-",
+        countryFlavor.name
+      );
+    } else {
+      // If "-- Choose a Country --" is selected, show the current flavor
+      show();
+      nameEl.style.color = ""; // reset color
+    }
   });
