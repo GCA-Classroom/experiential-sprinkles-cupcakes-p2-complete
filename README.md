@@ -19,7 +19,7 @@ Make your cupcake feature interactive by adding a **Next Flavor** button and sim
 
 ## LevelUp Challenge (Optional)
 
-Add a country dropdown so users can choose where they’re from, and update the featured flavor based on each country’s week start day (for example, Saturday for Bahrain).
+Add a country dropdown so users can choose their region (USA, France, Japan, Italy), and display a signature cupcake flavor for each country with themed colors from their flag.
 
 ## You’ll Practice
 
